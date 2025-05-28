@@ -26,7 +26,7 @@ export default function Form({fetchWeather} : FormProps) {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-
+        setAlert('');
         if(Object.values(search).includes('')) {
             setAlert('All fields are required')
             return
@@ -69,7 +69,7 @@ export default function Form({fetchWeather} : FormProps) {
                 </select>
             </div>
 
-            <input className={styles.submit} type="submit" value="Fetch weather" />
+            <input className={styles.submit} type="submit" value="Search" />
         </form>
     )
 }

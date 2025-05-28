@@ -1,5 +1,5 @@
 .container {
-    background-color: var(--white);
+    background-color: var(--beige);
     color: #000;
     border-radius: 1rem;
     text-align: center;
@@ -20,4 +20,11 @@
 }
 .temperatures span {
     font-weight: 400;
+}
+
+.tempAndIcon {
+    display: flex;
+    flex-direction: col;
+    justify-content: center;
+    align-items: center;
 }

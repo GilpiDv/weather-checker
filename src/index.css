@@ -1,6 +1,7 @@
 :root {
   --white: #FFF;
   --primary: #F59E0B;
+  --beige: #eae1ca;
 }
 
 html {
@@ -9,9 +10,7 @@ html {
 
 body {
   font-family: 'Outfit', sans-serif;
-  background-image: url('/public/bg_clima.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: rgb(47, 47, 47);
   height: 100vh;
   color: var(--white);
   font-size: 2rem;
