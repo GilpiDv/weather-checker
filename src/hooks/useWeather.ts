@@ -3,24 +3,35 @@ import z from "zod";
 import type { SearchType } from "../types";
 import { useMemo, useState } from "react";
 
+const WeatherDetails = z.object({
+    id: z.number(),
+    main: z.string(),
+    description: z.string(),
+    icon: z.string(),
+});
+
+type WeatherDetails = z.infer<typeof WeatherDetails>;
+
 const Weather = z.object({
     name: z.string(),
     main: z.object({
         temp: z.number(),
         temp_max: z.number(),
         temp_min: z.number()
-    })
+    }),
+    weather: z.array(WeatherDetails),
 });
 
-export type Weather = z.infer<typeof Weather>
+export type Weather = z.infer<typeof Weather>;
 
-const initialWeatherState = {
+const initialWeatherState: Weather = {
     name: '',
     main: {
         temp: 0,
         temp_max: 0,
         temp_min: 0
-    }
+    },
+    weather: [] as WeatherDetails[]
 }
 
 export default function useWeather() {
@@ -50,6 +61,7 @@ export default function useWeather() {
 
             const { data: weather } = await axios(weatherUrl);
             const result = Weather.safeParse(weather);
+
             if(result.success) {
                 setWeather(result.data);
             }
