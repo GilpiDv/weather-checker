@@ -9,7 +9,7 @@ type WeatherDetailProps = {
 export default function WeatherDetail({weather} : WeatherDetailProps) {
   return (
     <div className={styles.container}>
-        <h2>Weather of: {weather.name}</h2>
+        <h2>{weather.name}</h2>
         <div className={styles.tempAndIcon}>
             <img src={`/${weather.weather[0].icon}.png`} alt="Weather icon" />
             <p className={styles.current}>{ formatTemperature( weather.main.temp )}&deg;C</p>
